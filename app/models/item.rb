@@ -11,16 +11,19 @@ class Item < ApplicationRecord
   has_one :order
   has_one_attached :image
 
+  validates :price, :numericality => {
+    with: /\A[0-9]+\z/, :greater_than_or_equal_to => 300 , :less_than_or_equal_to => 9999999
+  }
+
   with_options presence: true do
     validates :name
     validates :text
-    validates :price
     validates :image
   end
 
   with_options numericality: { other_than: 1 } do
     validates :category_id
-    validates :stutus_id
+    validates :status_id
     validates :shipping_fee_id
     validates :prefecture_id
     validates :scheduled_delivery_id
