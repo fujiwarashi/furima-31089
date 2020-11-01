@@ -12,7 +12,8 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   validates :price, :numericality => {
-    with: /\A[0-9]+\z/, :greater_than_or_equal_to => 300 , :less_than_or_equal_to => 9999999
+    with: /\A[0-9]+\z/, :greater_than_or_equal_to => 300 , :less_than_or_equal_to => 9999999 ,
+    message: 'には¥300~¥9,999,999の間で半角数字を入力してください'
   }
 
   with_options presence: true do
