@@ -21,7 +21,7 @@ class Item < ApplicationRecord
     validates :image
   end
 
-  with_options numericality: { other_than: 1 } do
+  with_options numericality: { other_than: 1, message: 'が選択されていません' } do
     validates :category_id
     validates :status_id
     validates :shipping_fee_id
