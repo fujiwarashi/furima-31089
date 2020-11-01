@@ -20,7 +20,7 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
     end
-    
+
     context '新規登録がうまくいかないとき' do
       it 'ニックネームが必須でないといけない' do
         @user.nickname = ''
@@ -42,7 +42,7 @@ RSpec.describe User, type: :model do
       it 'メールアドレスは、@を含む必要があること' do
         @user.email = 'aaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
       it 'パスワードが入力されていないといけない' do
         @user.password = ''
