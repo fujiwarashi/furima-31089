@@ -5,6 +5,7 @@ class OrderAddress
   with_options presence: true do
     validates :city
     validates :house_number
+    validates :token
   end
 
   with_options numericality: { other_than: 1, message: 'が選択されていません' } do
