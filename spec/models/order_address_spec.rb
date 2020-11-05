@@ -62,6 +62,11 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Telephone は09012345678形式で入力して下さい')
       end
+      it 'telephoneが12桁以上だと保存できないこと' do
+        @order_address.telephone = '090123456789'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include('Telephone は09012345678形式で入力して下さい')
+      end
       it 'tokenが空では登録できないこと' do
         @order_address.token = ''
         @order_address.valid?
