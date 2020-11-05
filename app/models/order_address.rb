@@ -11,12 +11,12 @@ class OrderAddress
   with_options numericality: { other_than: 1, message: 'が選択されていません' } do
     validates :prefecture_id
   end
-  
-  with_options presence: true, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'は123-4567形式で入力して下さい'} do
+
+  with_options presence: true, format: { with: /\A\d{3}-\d{4}\z/, message: 'は123-4567形式で入力して下さい' } do
     validates :postal_code
   end
 
-  with_options presence: true, format: { with: /\A\d{10,11}\z/, message: 'は09012345678形式で入力して下さい'} do
+  with_options presence: true, format: { with: /\A\d{10,11}\z/, message: 'は09012345678形式で入力して下さい' } do
     validates :telephone
   end
 

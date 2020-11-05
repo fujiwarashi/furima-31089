@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :scheduled_delivery
 
   belongs_to :user
-  has_one :order ,dependent: :destroy
+  has_one :order, dependent: :destroy
   has_one_attached :image
 
   validates :price, numericality: {
