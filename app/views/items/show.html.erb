@@ -24,6 +24,7 @@
         <%= '配送料負担' %>
       </span>
     </div>
+    
     <% if user_signed_in? %>
       <% if current_user.id == @item.user_id %>
         <% unless Order.exists?(item_id: @item.id) %>
@@ -31,7 +32,7 @@
             <p class='or-text'>or</p>
           <%= link_to '削除', item_path, method: :delete, class:'item-destroy' %>
         <% end %>
-      <% elsif current_user.id != @item.user_id %>
+      <% else %>
         <% unless Order.exists?(item_id: @item.id) %>
           <%= link_to '購入画面に進む', item_orders_path(@item.id) ,class:"item-red-btn" %>
         <% end %>
